@@ -11,10 +11,12 @@
 
 // Listen for the browser action button to be clicked
 chrome.action.onClicked.addListener((tab) => {
-    // Send a message to the active tab to get its information
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      const activeTab = tabs[0];
-      chrome.tabs.sendMessage(activeTab.id, { action: 'openTabView' });
+    // Create a new window to show the tab view
+    chrome.windows.create({
+      url: chrome.runtime.getURL('index.html'),
+    //   type: 'popup',
+      width: 800,
+      height: 600
     });
   });
   

@@ -1,26 +1,20 @@
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   font-family: 'Inter', sans-serif;
   border: none;
-  background: white;
+  background: transparent;
+  border-radius: 100px;
+  /* overflow: hidden; */
 }
 
 .container {
-  border-radius: 1rem;
+  border-radius: 2rem;
   margin: 0 auto;
+  width: 2500px;
+  max-width: max-content;
+  height: 50px;
   background-color: #ffffff00; /* set background color to transparent white */
-}
-
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  /* background-color: #222; */
-  color: #fff;
-  border-radius: 0 0 2rem 2rem;
 }
 
 h1 {
@@ -28,34 +22,39 @@ h1 {
 }
 
 #searchBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 16px;
   padding: 1rem 2rem;
-  margin: 0 auto;
   text-align: left;
   border-radius: 5px;
   border: none;
+  border-radius: 1rem;
+  z-index: 1; /* ensure the search box appears on top of other elements */
 }
 
 main {
+  /* filter: blur(5px); */
   display: flex;
-  flex-wrap: wrap;
-  width: calc(5 * (300px + 20px));
-  margin: 0 auto;
-  height: fit-content;
+  justify-content: center;
   overflow-x: auto;
   padding: 20px;
 }
 
 .tab {
+  /* background-color: rgba(255, 255, 255, 0.5); */
+  /* backdrop-filter: blur(10px);  */
   display: inline-block;
   padding: 1rem;
   border-radius: 1.25rem;
-  filter: blur(0px);
+  /* filter: blur(0px); */
   margin: 0 10px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-  border: 1px solid #dbdbdb;
-  background-color: #f0f0f0;
+  border: 1px solid #EBEBEB;
+  background-color: #F8F8F8;
 }
 
 .tab.hidden {
