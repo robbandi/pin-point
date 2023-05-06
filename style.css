@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #222;
+  color: #fff;
+}
+
+h1 {
+  margin: 0;
+}
+
+#searchBox {
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+main {
+  display: flex;
+  flex-wrap: nowrap;
+  width: calc(5 * (300px + 20px));
+  height: fit-content;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.tab {
+  display: inline-block;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  /* box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); */
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.tab:hover {
+  opacity: 1;
+}
+
+.favicon {
+  width: 32px;
+  height: 32px;
+  margin-right: 5px;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}

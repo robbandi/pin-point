@@ -1,0 +1,52 @@
+{
+    "name": "Tab Search",
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "Search your tabs and open them quickly with Ctrl + S",
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": {
+        "16": "icon16.png",
+        "128": "icon128.png"
+      }
+    },
+    "icons": {
+      "16": "icon16.png",
+      "128": "icon128.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "optional_permissions": [
+      "scripting"
+    ],
+    "web_accessible_resources": [ 
+        { 
+            "resources": ["_favicon/*"], 
+            "matches": ["<all_urls>"], 
+            "extension_ids": ["*"] 
+        } 
+    ],
+    "commands": {
+      "search-tab": {
+        "suggested_key": {
+          "default": "Ctrl+S",
+          "mac": "Command+S"
+        },
+        "description": "Search your tabs and open them quickly"
+      }
+    },
+    "permissions": [
+      "tabs",
+      "favicon",
+      "activeTab",
+      "webNavigation"
+    ],
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; img-src 'self' chrome://favicon/ 'self'"
+    }
+  }
