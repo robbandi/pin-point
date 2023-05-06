@@ -1,9 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   border: none;
-  background: transparent;
+  background: white;
 }
 
 .container {
@@ -40,6 +40,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   width: calc(5 * (300px + 20px));
+  margin: 0 auto;
   height: fit-content;
   overflow-x: auto;
   padding: 20px;
@@ -51,7 +52,10 @@ main {
   border-radius: 1.25rem;
   filter: blur(0px);
   margin: 0 10px;
-  background-color: #ccc;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 1px solid #dbdbdb;
+  background-color: #f0f0f0;
 }
 
 .tab.hidden {

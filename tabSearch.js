@@ -1,19 +1,10 @@
-// Keep track of which tabs are hidden
-let hiddenTabs = new Set();
-
 // Listen for the user typing in the search box
 const searchBox = document.getElementById('searchBox');
 searchBox.addEventListener('input', () => {
   const query = searchBox.value.trim();
   if (query.length === 0) {
-    // Clear the search results and show all non-hidden tabs
-    const tabElements = document.querySelectorAll('.tab');
-    for (const tabElement of tabElements) {
-      const tabId = parseInt(tabElement.dataset.tabId);
-      if (!hiddenTabs.has(tabId)) {
-        tabElement.classList.remove('hidden');
-      }
-    }
+    // Clear the search results and show all tabs
+    showAllTabs();
   } else {
     // Send a message to the background script to search for matching tabs
     chrome.runtime.sendMessage({ action: 'searchTabs', query }, (matchingTabs) => {
@@ -23,10 +14,8 @@ searchBox.addEventListener('input', () => {
         const tabId = parseInt(tabElement.dataset.tabId);
         if (matchingTabs.some((tab) => tab.id === tabId)) {
           tabElement.classList.remove('hidden');
-          hiddenTabs.delete(tabId);
         } else {
           tabElement.classList.add('hidden');
-          hiddenTabs.add(tabId);
         }
       }
     });
@@ -35,23 +24,34 @@ searchBox.addEventListener('input', () => {
 
 // Show all open tabs in the view
 function showAllTabs() {
-  chrome.tabs.query({ currentWindow: true }, (tabs) => {
-    const tabList = document.getElementById('tabList');
-    tabList.innerHTML = '';
-    hiddenTabs.clear();
-    for (let i = 0; i < tabs.length; i++) {
-      if (i < 5) {
-        const tabElement = createTabElement(tabs[i]);
-        tabList.appendChild(tabElement);
-      } else {
-        const tabElement = createTabElement(tabs[i]);
-        tabElement.classList.add('hidden');
-        hiddenTabs.add(tabs[i].id);
-        tabList.appendChild(tabElement);
-      }
+    chrome.tabs.query({ currentWindow: true }, (tabs) => {
+        const tabList = document.getElementById('tabList');
+        tabList.innerHTML = '';
+        const numTabsToShow = tabs.length;
+        const numTabs = tabs.length;
+        let startIdx = 0;
+        let endIdx = numTabsToShow;
+        for (let i = startIdx; i < endIdx; i++) {
+          const tabElement = createTabElement(tabs[i]);
+          tabList.appendChild(tabElement);
+        }});
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.pageYOffset;
+          const scrollHeight = document.body.scrollHeight;
+          const clientHeight = document.documentElement.clientHeight;
+          if (scrollTop + clientHeight >= scrollHeight) {
+            startIdx += numTabsToShow;
+            endIdx += numTabsToShow;
+            if (endIdx > numTabs) {
+              endIdx = numTabs;
+            }
+            for (let i = startIdx; i < endIdx; i++) {
+              const tabElement = createTabElement(tabs[i]);
+              tabList.appendChild(tabElement);
+            }
+          }
+        });
     }
-  });
-}
 
 // Create an element to display a tab
 function createTabElement(tab) {
@@ -69,6 +69,13 @@ function createTabElement(tab) {
   const faviconElement = document.createElement('img');
   faviconElement.className = 'favicon';
   faviconElement.src = faviconURL(tab.url);
+  tabElement.appendChild(faviconElement);
+
+  // Add an event listener to open the tab when clicked
+tabElement.addEventListener('click', () => {
+    chrome.tabs.update(tab.id, { active: true });
+  });
+  
   tabElement.appendChild(faviconElement);
 
   const titleElement = document.createElement('div');
