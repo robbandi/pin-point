@@ -6,13 +6,13 @@
     "action": {
       "default_popup": "index.html",
       "default_icon": {
-        "16": "icon16.png",
-        "128": "icon128.png"
+        "16": "tabs16.png",
+        "128": "tabs128.png"
       }
     },
     "icons": {
-      "16": "icon16.png",
-      "128": "icon128.png"
+      "16": "tabs16.png",
+      "128": "tabs128.png"
     },
     "background": {
       "service_worker": "background.js"
