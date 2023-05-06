@@ -6,6 +6,7 @@ searchBox.addEventListener('input', () => {
   if (query.length === 0) {
     // Clear the search results and show all tabs at the front
     showAllTabs();
+    main.classList.remove('blur');
     const mainElement = document.querySelector('main');
     mainElement.scrollTo({ left: 0, behavior: 'smooth' });
   } else {
@@ -21,20 +22,28 @@ searchBox.addEventListener('input', () => {
           if (firstVisibleTab) {
             // Move this matching tab before the first visible matching tab
             firstVisibleTab.parentElement.insertBefore(tabElement, firstVisibleTab);
-          } else {
+        } else {
             // This is the first visible matching tab
             firstVisibleTab = tabElement;
           }
-          // Show the matching tab
+          // Show the matching tab and unblur it
           tabElement.classList.remove('hidden');
+          tabElement.classList.remove('blur');
         } else {
-          // Hide the non-matching tab
+          // Hide the non-matching tab and blur it
           tabElement.classList.add('hidden');
+          tabElement.classList.add('blur');
         }
       }
       if (firstVisibleTab) {
         // Scroll to the first visible matching tab
         firstVisibleTab.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Blur the main container if there are any hidden tabs
+      if (matchingTabs.length < tabElements.length) {
+        main.classList.add('blur');
+      } else {
+        main.classList.remove('blur');
       }
     });
   }
@@ -131,6 +140,3 @@ function createTabElement(tab) {
   
   return tabElement;
 }
-
-// Initialize the view
-// showAllTabs();
