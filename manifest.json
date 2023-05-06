@@ -7,12 +7,12 @@
       "default_popup": "index.html",
       "default_icon": {
         "16": "tabs16.png",
-        "128": "t128.png"
+        "128": "tt128.png"
       }
     },
     "icons": {
       "16": "tabs16.png",
-      "128": "t128.png"
+      "128": "tt128.png"
     },
     "background": {
       "service_worker": "background.js"
