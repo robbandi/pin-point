@@ -1,8 +1,8 @@
 {
-    "name": "Tab Search",
+    "name": "point",
     "version": "1.0",
     "manifest_version": 3,
-    "description": "Search your tabs and open them quickly with Ctrl + S",
+    "description": "View and search through your open tabs",
     "action": {
       "default_popup": "index.html",
       "default_icon": {
