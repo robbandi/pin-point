@@ -20,42 +20,23 @@ chrome.action.onClicked.addListener((tab) => {
       });
       return true; // asynchronous response
     }
-  });
 
-// Create a new window to show the tab view
-// function openTabSearchWindow() {
-//   const width = 600;
-//   const height = 400;
-//   const left = (screen.width - width) / 2;
-//   const top = (screen.height - height) / 2;
-//   const url = chrome.runtime.getURL('index.html');
-//   window.open(url, 'myPopup', `width=${width}, height=${height}, left=${left}, top=${top}`);
-// }
+  // chrome.scripting.executeScript(
+  //   {
+  //     target: { tabId: _data.tabId },
+  //     files: ['custom-elements.min.js']
+  //   },
+  //   () => {
+  //     chrome.scripting.executeScript({
+  //       target: { tabId: _data.tabId },
+  //       files: ['tabSearch.js']
+  //     })
+  //   }
+  // )
 
-// // Listen for the browser action button to be clicked
-// chrome.action.onClicked.addListener((tab) => {
-//   openTabSearchWindow();
-// });
+  // chrome.scripting.insertCSS({
+  //   target: { tabId: _data.tabId },
+  //   files: ['style/inject.css']
+  // })
 
-// // Listen for messages from the tabSearch.js script
-// chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-//   if (request.action === 'searchTabs') {
-//     chrome.tabs.query({ currentWindow: true }, (tabs) => {
-//       const matchingTabs = tabs.filter((tab) =>
-//         tab.title.toLowerCase().includes(request.query.toLowerCase())
-//       );
-//       sendResponse(matchingTabs);
-//     });
-//     return true; // asynchronous response
-//   } else if (request.action === 'openTabSearchWindow') {
-//     openTabSearchWindow();
-//   }
-// });
-
-// // Listen for keydown events on the document
-// document.addEventListener('keydown', (event) => {
-//   // Check if the user pressed Alt+Shift+F
-//   if (event.altKey && event.shiftKey && event.key === 'F') {
-//     openTabSearchWindow();
-//   }
-// });
+});

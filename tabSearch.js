@@ -93,6 +93,16 @@ function showAllTabs() {
     });
   });
 
+  // Open a new window with the tab list
+// chrome.action.onClicked.addListener((tab) => {
+//   const newWindow = window.open("", "Tab List", "height=600,width=800");
+//   const newDocument = newWindow.document;
+//   const tabList = newDocument.createElement('div');
+//   tabList.id = 'tabList';
+//   newDocument.body.appendChild(tabList);
+//   showAllTabs();
+// });
+
 // Create an element to display a tab
 function createTabElement(tab) {
   const tabElement = document.createElement('div');

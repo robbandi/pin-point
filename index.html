@@ -3,6 +3,7 @@
 <head>
   <title>Tab View</title>
   <link rel="stylesheet" href="style.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
 </head>
 <body>
   <div class="container">
@@ -12,8 +13,12 @@
   <main>
     <div id="tabList"></div>
   </main>
-  <!-- <main id="tabList">
-  </main> -->
+  <!-- Add this script tag to load the polyfill -->
+<!-- <script src="custom-elements.min.js"></script>
+<script>
+  const tabListElement = document.createElement('tab-list');
+  document.body.appendChild(tabListElement);
+</script> -->
   <script src="tabSearch.js"></script>
   </div>
 </body>

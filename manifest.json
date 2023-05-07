@@ -52,6 +52,7 @@
       "https://*/*"
     ],
     "content_security_policy": {
-      "extension_pages": "script-src 'self'; img-src 'self' chrome://favicon/ 'self'"
+      "extension_pages": "script-src 'self'; img-src 'self' chrome://favicon/ 'self'",
+      "csp": "script-src 'self' 'unsafe-inline'; object-src 'self'"
     }
   }

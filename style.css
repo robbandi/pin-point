@@ -57,6 +57,11 @@ h1 {
   color: #ffffff5b;
 }
 
+#searchBox[type="text"] {
+  outline: none;
+  color: white;
+}
+
 main {
   /* filter: blur(5px); */
   display: flex;
