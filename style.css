@@ -5,6 +5,7 @@ body {
   border: none;
   background: transparent;
   border-radius: 100px;
+  background-color: #000000;
 }
 
 .container {
@@ -12,9 +13,24 @@ body {
   margin: 0 auto;
   width: 10500px;
   max-width: max-content;
-  height: 50px;
-  background-color: #ffffff00;
+  min-width: 250px;
+  height: 150px;
+  background-color: #000000;
+  padding: 1rem;
 }
+
+.tab .title {
+  display: none;
+}
+
+/* .tab:hover .title {
+  display: flex;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+  background: #000000ca;
+}  */
 
 .blur {
   filter: blur(5px);
@@ -26,8 +42,8 @@ h1 {
 
 #searchBox {
   position: fixed;
-  top: 50%;
-  left: 50%;
+  left: 50%; 
+  top: 25%;
   transform: translate(-50%, -50%);
   font-size: 16px;
   padding: 1rem 2rem;
@@ -36,6 +52,8 @@ h1 {
   border: none;
   border-radius: 1rem;
   z-index: 1;
+  background-color: #101010;
+  color: #ffffff5b;
 }
 
 main {
@@ -43,7 +61,6 @@ main {
   display: flex;
   justify-content: center;
   overflow-x: auto;
-  padding: 20px;
 }
 
 .tab {
@@ -51,10 +68,13 @@ main {
   padding: 1rem;
   border-radius: 1.25rem;
   margin: 0 10px;
+  margin-top: 4.5rem;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-  border: 1px solid #EBEBEB;
-  background-color: #F8F8F8;
+  /* border: 1px solid #EBEBEB;
+  background-color: #F8F8F8; */
+  border: 1px solid #3c3c3c6e;
+  background-color: #101010;
 }
 
 .tab.hidden {

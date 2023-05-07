@@ -130,7 +130,7 @@ function createTabElement(tab) {
   tabElement.appendChild(titleElement);
   
   // add CSS to show and hide the titleElement only on hover
-  titleElement.style.display = 'none';
+  // titleElement.style.display = 'none';
 //   tabElement.addEventListener('mouseenter', () => {
 //     titleElement.style.display = 'block';
 //   });
