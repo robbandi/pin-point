@@ -28,12 +28,17 @@
         } 
     ],
     "commands": {
-      "search-tab": {
+      "open-tab-search-window": {
         "suggested_key": {
-          "default": "Ctrl+S",
-          "mac": "Command+S"
+          "default": "Alt+Shift+F"
         },
-        "description": "Search your tabs and open them quickly"
+        "description": "Open the tab search window"
+      },
+      "search-tabs": {
+        "suggested_key": {
+          "default": "Alt+Shift+S"
+        },
+        "description": "Search for tabs"
       }
     },
     "permissions": [
