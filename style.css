@@ -5,7 +5,7 @@ body {
   border: none;
   background: transparent;
   border-radius: 100px;
-  background-color: #000000;
+  /* background-color: #000000; */
   /* backdrop-filter: blur(5px); */
 }
 
@@ -16,7 +16,7 @@ body {
   max-width: max-content;
   min-width: 250px;
   height: 150px;
-  background-color: #000000;
+  background-color: #ffffff;
   padding: 1rem;
 }
 
@@ -53,13 +53,13 @@ h1 {
   border: none;
   border-radius: 1rem;
   z-index: 1;
-  background-color: #101010;
-  color: #ffffff5b;
+  background-color: #1010100e;
+  color: #000000;
 }
 
 #searchBox[type="text"] {
   outline: none;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 main {
@@ -79,8 +79,8 @@ main {
   cursor: pointer;
   /* border: 1px solid #EBEBEB;
   background-color: #F8F8F8; */
-  border: 1px solid #3c3c3c6e;
-  background-color: #101010;
+  border: 1px solid #0000000a;
+  background-color: #f7f7f7;
 }
 
 .tab.hidden {
